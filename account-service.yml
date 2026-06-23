@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/api_fintech?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: api_user
+    password: api_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 8080
