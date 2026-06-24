@@ -7,3 +7,6 @@ spring:
 
 server:
   port: 8080
+
+dolar-api-client:
+  api-dolar-url: https://dolarapi.com
