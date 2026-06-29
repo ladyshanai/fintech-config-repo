@@ -1,31 +1,18 @@
-server:
-  port: 8085
-
 spring:
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-
       routes:
         - id: account-service
-          uri: lb://account-service
+          uri: lb://ACCOUNT-SERVICE
           predicates:
             - Path=/api/v1/accounts/**,/api/v1/clients/**
 
         - id: cards-service
-          uri: lb://cards-service
+          uri: lb://CARDS-SERVICE
           predicates:
             - Path=/api/v1/cards/**
 
         - id: products-service
-          uri: lb://products-service
+          uri: lb://PRODUCTS-SERVICE
           predicates:
             - Path=/api/v1/fixed-term-deposits/**
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
