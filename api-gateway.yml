@@ -4,28 +4,26 @@ server:
 spring:
   cloud:
     gateway:
-      server:
-        webflux:
-          discovery:
-            locator:
-              enabled: true
-              lower-case-service-id: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
 
-          routes:
-            - id: account-service
-              uri: lb://account-service
-              predicates:
-                - Path=/api/v1/accounts/**,/api/v1/clients/**
+      routes:
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/api/v1/accounts/**,/api/v1/clients/**
 
-            - id: cards-service
-              uri: lb://cards-service
-              predicates:
-                - Path=/api/v1/cards/**
+        - id: cards-service
+          uri: lb://cards-service
+          predicates:
+            - Path=/api/v1/cards/**
 
-            - id: products-service
-              uri: lb://products-service
-              predicates:
-                - Path=/api/v1/fixed-term-deposits/**
+        - id: products-service
+          uri: lb://products-service
+          predicates:
+            - Path=/api/v1/fixed-term-deposits/**
 
 eureka:
   client:
