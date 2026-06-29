@@ -1,3 +1,6 @@
+server:
+  port: 8085
+
 spring:
   cloud:
     gateway:
@@ -16,3 +19,8 @@ spring:
           uri: lb://PRODUCTS-SERVICE
           predicates:
             - Path=/api/v1/fixed-term-deposits/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
