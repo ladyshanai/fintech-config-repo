@@ -4,19 +4,24 @@ server:
 spring:
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
       routes:
         - id: account-service
-          uri: lb://ACCOUNT-SERVICE
+          uri: lb://account-service
           predicates:
             - Path=/api/v1/accounts/**,/api/v1/clients/**
 
         - id: cards-service
-          uri: lb://CARDS-SERVICE
+          uri: lb://cards-service
           predicates:
             - Path=/api/v1/cards/**
 
         - id: products-service
-          uri: lb://PRODUCTS-SERVICE
+          uri: lb://products-service
           predicates:
             - Path=/api/v1/fixed-term-deposits/**
 
